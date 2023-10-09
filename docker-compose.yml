@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    image: node_ramiro
+    deploy:
+      replicas: 8
+      
+    ports:
+      - "8080:3000"  # Mapea el puerto 8080 en el host al puerto 3000 del contenedor
+    volumes:
+      - ./server:/app
+    networks:
+      - webnet
+
+networks:
+  webnet:
